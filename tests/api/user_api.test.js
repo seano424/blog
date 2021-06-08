@@ -10,7 +10,7 @@ describe('when there is initially one user at db', () => {
     beforeEach(async () => {
         await User.deleteMany({})
 
-        const passwordHash = await bcrypt.hash('password', 10)
+        const passwordHash = await bcrypt.hash('sekret', 10)
         const user = new User({ username: 'root', passwordHash })
 
         await user.save()
@@ -20,9 +20,9 @@ describe('when there is initially one user at db', () => {
         const usersAtStart = await helper.usersInDb()
 
         const newUser = {
-            username: 'kayra',
-            name: 'Kayra Berk Tuncer',
-            password: 'password',
+            username: 'mluukai',
+            name: 'Matt Luukainen',
+            password: 'salainen',
         }
 
         await api
@@ -43,7 +43,8 @@ describe('when there is initially one user at db', () => {
 
         const newUser = {
             username: 'root',
-            password: 'password',
+            name: 'Superuser',
+            password: 'salainen',
         }
 
         const result = await api
